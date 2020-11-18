@@ -1,0 +1,44 @@
+@startuml
+
+title Mastermind
+
+class Mastermind {
+    +void play()
+}
+
+class Game {
+    +void play()
+}
+
+class Combination {
+    +String getColors()
+}
+
+class SecretCombination {
+    +void provideResult(ProposedCombination attempt)
+    +String obfuscated()
+}
+
+class ProposedCombination {
+    +void showResult()
+    +void setResult()
+    +boolean isValid()
+    +boolean isWinnerResult()
+}
+
+class Console {
+    +out()
+    +readString()
+}
+
+Mastermind *--> Game
+Game *--> SecretCombination
+Game o--> "1..10" ProposedCombination
+Combination <|-- SecretCombination
+Combination <|-- ProposedCombination
+SecretCombination ..> ProposedCombination
+Mastermind ..> Console
+Game ..> Console
+ProposedCombination ..> Console
+
+@enduml

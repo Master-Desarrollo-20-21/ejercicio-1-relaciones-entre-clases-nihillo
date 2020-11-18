@@ -1,1 +1,1 @@
-![Classes](img/classes.png)
+![Classes](img/classes_v2.png)
